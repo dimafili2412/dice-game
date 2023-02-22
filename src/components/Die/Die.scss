@@ -1,0 +1,13 @@
+@import '../../vars';
+$die-size: 10rem;
+
+.die {
+  display: inline-block;
+  margin: 30px 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  filter: drop-shadow(0 0 10px $lighter-grey);
+}

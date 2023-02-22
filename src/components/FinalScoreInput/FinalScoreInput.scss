@@ -1,0 +1,11 @@
+@import '../../vars';
+input.final-score-input {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  width: 10rem;
+  border: 1px solid $light-grey;
+  border-radius: 2px;
+  cursor: text;
+  color: $light-grey;
+}

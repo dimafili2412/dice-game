@@ -1,0 +1,24 @@
+/*
+responsive element size
+pass base(pc) width & height and the ratio to multiply by for mobile
+*/
+/*
+responsive padding
+pass padding values for top, right, bottom, left (same order as built in) and ratio to multiply by for mobile
+*/
+div.player-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+div.player-wrapper.active {
+  background-color: RGB(245, 245, 245);
+  box-shadow: 0 0 3px 3px RGB(245, 245, 245);
+}
+div.player-wrapper div.player {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  max-width: fit;
+  height: 100%;
+}/*# sourceMappingURL=Player.css.map */

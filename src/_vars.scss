@@ -1,0 +1,93 @@
+//colors - for the option to quickly add themes later (node-sass library)
+$red: RGB(255, 0, 0);
+$light-red: RGB(256, 50, 50);
+$dark-red: RGB(236, 0, 0);
+$light-grey: RGB(150, 150, 150);
+$lighter-grey: RGB(220, 220, 220);
+$lightest-grey: RGB(245, 245, 245);
+$dark-grey: RGB(50, 50, 50);
+$black: RGB(0, 0, 0);
+$white: RGB(255, 255, 255);
+
+//mobile breakpoint
+$breakpoint: 1280px;
+
+//responsive font size mobile 1st
+@mixin huge-font {
+  font-size: 5rem;
+  @media only screen and (min-width: $breakpoint) {
+    font-size: 8rem;
+  }
+}
+
+@mixin large-font {
+  font-size: 4rem;
+  @media only screen and (min-width: $breakpoint) {
+    font-size: 6rem;
+  }
+}
+
+@mixin medium-font {
+  font-size: 2rem;
+  @media only screen and (min-width: $breakpoint) {
+    font-size: 4rem;
+  }
+}
+
+@mixin small-font {
+  font-size: 1rem;
+  @media only screen and (min-width: $breakpoint) {
+    font-size: 2rem;
+  }
+}
+
+@mixin tiny-font {
+  font-size: 0.5rem;
+  @media only screen and (min-width: $breakpoint) {
+    font-size: 1rem;
+  }
+}
+
+/*
+responsive element size
+pass base(pc) width & height and the ratio to multiply by for mobile
+*/
+@mixin responsive-size($width, $height, $ratio) {
+  width: calc($width * $ratio);
+  height: calc($height * $ratio);
+  @media only screen and (min-width: $breakpoint) {
+    width: $width;
+    height: $height;
+  }
+}
+
+/*
+responsive padding
+pass padding values for top, right, bottom, left (same order as built in) and ratio to multiply by for mobile
+*/
+@mixin responsive-padding($top, $right, $bottom, $left, $ratio) {
+  @if ($top > 0) {
+    margin-top: calc($top * $ratio);
+    @media only screen and (min-width: $breakpoint) {
+      padding-top: $top;
+    }
+  }
+  @if ($right > 0) {
+    padding-right: calc($right * $ratio);
+    @media only screen and (min-width: $breakpoint) {
+      padding-right: $right;
+    }
+  }
+  @if ($bottom > 0) {
+    padding-bottom: calc($bottom * $ratio);
+    @media only screen and (min-width: $breakpoint) {
+      padding-bottom: $bottom;
+    }
+  }
+  @if ($left > 0) {
+    padding-left: calc($left * $ratio);
+    @media only screen and (min-width: $breakpoint) {
+      padding-left: $left;
+    }
+  }
+}

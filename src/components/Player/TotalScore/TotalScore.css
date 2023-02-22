@@ -1,0 +1,70 @@
+/*
+responsive element size
+pass base(pc) width & height and the ratio to multiply by for mobile
+*/
+/*
+responsive padding
+pass padding values for top, right, bottom, left (same order as built in) and ratio to multiply by for mobile
+*/
+div.total-score-container {
+  text-align: center;
+}
+div.total-score-container h1.title {
+  color: RGB(150, 150, 150);
+  font-weight: lighter;
+  display: inline-block;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-right: 1.5rem;
+  padding-left: 0.75rem;
+  font-size: 2rem;
+  position: relative;
+}
+@media only screen and (min-width: 1280px) {
+  div.total-score-container h1.title {
+    padding-right: 3rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  div.total-score-container h1.title {
+    padding-left: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  div.total-score-container h1.title {
+    font-size: 4rem;
+  }
+}
+div.total-score-container h1.title.active {
+  color: RGB(50, 50, 50);
+}
+div.total-score-container h1.title.winner {
+  color: RGB(255, 0, 0);
+}
+div.total-score-container div.red-dot {
+  display: inline-block;
+  background-color: RGB(255, 0, 0);
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.5rem;
+  height: 0.5rem;
+}
+@media only screen and (min-width: 1280px) {
+  div.total-score-container div.red-dot {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+div.total-score-container div.score {
+  color: RGB(255, 0, 0);
+  font-weight: lighter;
+  font-size: 5rem;
+}
+@media only screen and (min-width: 1280px) {
+  div.total-score-container div.score {
+    font-size: 8rem;
+  }
+}/*# sourceMappingURL=TotalScore.css.map */

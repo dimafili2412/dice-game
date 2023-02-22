@@ -1,0 +1,23 @@
+@import '../../../vars';
+
+div.current-score-container {
+  background-color: $light-red;
+  box-shadow: 0 0 0 2px $dark-red;
+  text-align: center;
+  height: 5rem;
+  width: 9rem;
+  min-width: fit-content;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  align-items: center;
+  margin: 0 auto;
+  div.current-score-tag {
+    margin: 0.2rem 0 0 0;
+    color: $black;
+  }
+  div.current-score-number {
+    margin: 0 0 0.1rem 0;
+    color: $white;
+    font-size: 2rem;
+  }
+}

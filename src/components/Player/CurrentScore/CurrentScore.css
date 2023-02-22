@@ -1,0 +1,30 @@
+/*
+responsive element size
+pass base(pc) width & height and the ratio to multiply by for mobile
+*/
+/*
+responsive padding
+pass padding values for top, right, bottom, left (same order as built in) and ratio to multiply by for mobile
+*/
+div.current-score-container {
+  background-color: RGB(256, 50, 50);
+  box-shadow: 0 0 0 2px RGB(236, 0, 0);
+  text-align: center;
+  height: 5rem;
+  width: 9rem;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  align-items: center;
+  margin: 0 auto;
+}
+div.current-score-container div.current-score-tag {
+  margin: 0.2rem 0 0 0;
+  color: RGB(0, 0, 0);
+}
+div.current-score-container div.current-score-number {
+  margin: 0 0 0.1rem 0;
+  color: RGB(255, 255, 255);
+  font-size: 2rem;
+}/*# sourceMappingURL=CurrentScore.css.map */

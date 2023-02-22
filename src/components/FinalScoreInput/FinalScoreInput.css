@@ -1,0 +1,18 @@
+/*
+responsive element size
+pass base(pc) width & height and the ratio to multiply by for mobile
+*/
+/*
+responsive padding
+pass padding values for top, right, bottom, left (same order as built in) and ratio to multiply by for mobile
+*/
+input.final-score-input {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  width: 10rem;
+  border: 1px solid RGB(150, 150, 150);
+  border-radius: 2px;
+  cursor: text;
+  color: RGB(150, 150, 150);
+}/*# sourceMappingURL=FinalScoreInput.css.map */
