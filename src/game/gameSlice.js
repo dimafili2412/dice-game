@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+//all reducers (and handlres) mutate state thanks to immer :)
+
 const initialPlayerState = {
   currentScore: 0,
   totalScore: 0,
@@ -86,17 +88,11 @@ const options = {
         //test if all dice equals 6
         const diceTotal = action.payload.reduce((acc, val) => acc + val, 0);
         if (Math.floor(diceTotal / action.payload.length) === 6) {
-          console.log('6');
           state.players[state.activePlayer].currentScore = 0;
           handleHold(state);
-          handleNextPlayer(state);
         }
         state.players[state.activePlayer].currentScore += diceTotal;
       }
-    },
-    win(state, action) {
-      state.winner = state.activePlayer;
-      handleResetCurrentScore(state.players);
     },
     setDice: (state, action) => {
       state.dice = action.payload;
