@@ -1,0 +1,13 @@
+@import '../../common/vars';
+
+.player {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  max-width: fit;
+  height: 100%;
+  &.active {
+    background-color: $lightest-grey;
+    box-shadow: 0 0 3px 3px $lightest-grey;
+  }
+}

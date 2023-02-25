@@ -1,0 +1,11 @@
+.player {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  max-width: fit;
+  height: 100%;
+}
+.player.active {
+  background-color: RGB(245, 245, 245);
+  box-shadow: 0 0 3px 3px RGB(245, 245, 245);
+}/*# sourceMappingURL=player.css.map */
