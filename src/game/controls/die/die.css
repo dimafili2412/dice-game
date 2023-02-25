@@ -1,0 +1,10 @@
+.die {
+  display: inline-block;
+  margin: 30px 0;
+  width: 10rem;
+  height: 10rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  filter: drop-shadow(0 0 10px RGB(220, 220, 220));
+}/*# sourceMappingURL=Die.css.map */

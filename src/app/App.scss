@@ -1,0 +1,17 @@
+@import './../common/vars';
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+//fonts
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url('../common/fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+}
+
+* {
+  font-family: 'Roboto';
+}
