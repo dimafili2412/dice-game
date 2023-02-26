@@ -12,7 +12,7 @@ import { rollDice, increaseCurrentScore, hold, newGame } from '../gameSlice';
 export default function Controls(props) {
   const dispatch = useDispatch();
   const dice = useSelector((state) => state.game.dice);
-  const actionsDisabled = useSelector((state) => state.game.winner !== -1 || !state.game.finalScore);
+  const actionsDisabled = useSelector((state) => state.game.winner !== -1);
   const handleRollDiceClick = () => {
     dispatch(rollDice(dice));
     dispatch(increaseCurrentScore(10));

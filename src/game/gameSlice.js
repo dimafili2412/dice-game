@@ -27,7 +27,7 @@ const handleResetCurrentScore = (players, playerIndex = -1) => {
   }
 };
 //will reset score for both players
-const handleResetFinalScore = (players) => {
+const handleReseTotalScore = (players) => {
   players.forEach((player) => {
     player.finalScore = 0;
   });
@@ -35,7 +35,7 @@ const handleResetFinalScore = (players) => {
 
 const handleWin = (state) => {
   handleResetCurrentScore(state.players);
-  handleResetFinalScore(state.players);
+  handleReseTotalScore(state.players);
   state.winner = state.activePlayer;
   handleHideDice(state.dice);
   state.players[state.activePlayer].wins++;
@@ -45,14 +45,16 @@ const handleHold = (state) => {
   const activePlayer = state.players[state.activePlayer];
   activePlayer.totalScore += activePlayer.currentScore;
   activePlayer.currentScore = 0;
-  if (activePlayer.totalScore > state.finalScore) {
+  //if final score was not input by user it will default to 100
+  const finalScore = state.finalScore || 100;
+  if (activePlayer.totalScore > finalScore) {
     handleWin(state);
   } else {
     handleNextPlayer(state);
   }
 };
 
-const setFinalScoreReducer = (state, score) => {
+const handleSetFinalScore = (state, score) => {
   state.finalScore = score;
 };
 
@@ -92,7 +94,7 @@ const options = {
       state.dice = action.payload;
     },
     newGame: (state, action) => {
-      setFinalScoreReducer(state, '');
+      handleSetFinalScore(state, '');
       state.winner = -1;
       handleNextPlayer(state);
       handleResetCurrentScore(state.players);
@@ -102,9 +104,9 @@ const options = {
       //validate score - if not numeric or under 1 set to empty string both falsy and displays palceholder
       const int = parseInt(action.payload);
       if (typeof int === 'number' && int > 0) {
-        setFinalScoreReducer(state, parseInt(int));
+        handleSetFinalScore(state, parseInt(int));
       } else {
-        setFinalScoreReducer(state, '');
+        handleSetFinalScore(state, '');
       }
     },
     loadState: (state, action) => {
