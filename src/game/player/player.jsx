@@ -13,7 +13,7 @@ export default function Player({ index }) {
   const column = Math.floor(8 * index) + 1;
   return (
     <div className={`player${active ? ' active' : ''}`} style={{ gridRow: '1/-1', gridColumn: `${column}/${column + 8}` }}>
-      <PlayerHeader index={index + 1} score={player.totalScore} active={active} winner={winner} />
+      <PlayerHeader index={index + 1} score={player.totalScore} active={active} winner={winner} wins={player.wins} />
       <PlayerCurrentScore score={player.currentScore} />
     </div>
   );

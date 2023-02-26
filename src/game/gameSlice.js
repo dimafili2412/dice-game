@@ -2,12 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 //all reducers (and handlres) mutate state thanks to immer :)
 
-const initialPlayerState = {
-  currentScore: 0,
-  totalScore: 0,
-  wins: 0,
-};
-
 const handleHideDice = (dice) => {
   for (let i = 0; i < dice.length; i++) {
     dice[i] = -1;
@@ -44,6 +38,7 @@ const handleWin = (state) => {
   handleResetFinalScore(state.players);
   state.winner = state.activePlayer;
   handleHideDice(state.dice);
+  state.players[state.activePlayer].wins++;
 };
 
 const handleHold = (state) => {
@@ -59,6 +54,12 @@ const handleHold = (state) => {
 
 const setFinalScoreReducer = (state, score) => {
   state.finalScore = score;
+};
+
+const initialPlayerState = {
+  currentScore: 0,
+  totalScore: 0,
+  wins: 0,
 };
 
 const options = {
@@ -79,20 +80,13 @@ const options = {
       handleHold(state);
     },
     increaseCurrentScore: (state, action) => {
-      //handle single number as payload
-      if (typeof action.payload === 'number') {
-        state.players[state.activePlayer].currentScore += action.payload;
+      //test if all dice equals 6
+      const diceTotal = state.dice.reduce((acc, val) => acc + val, 0);
+      if (Math.floor(diceTotal / state.dice.length) === 6) {
+        state.players[state.activePlayer].currentScore = 0;
+        handleHold(state);
       }
-      //handle array of dice numbers as payload
-      if (Array.isArray(action.payload)) {
-        //test if all dice equals 6
-        const diceTotal = action.payload.reduce((acc, val) => acc + val, 0);
-        if (Math.floor(diceTotal / action.payload.length) === 6) {
-          state.players[state.activePlayer].currentScore = 0;
-          handleHold(state);
-        }
-        state.players[state.activePlayer].currentScore += diceTotal;
-      }
+      state.players[state.activePlayer].currentScore += diceTotal;
     },
     setDice: (state, action) => {
       state.dice = action.payload;
@@ -113,6 +107,11 @@ const options = {
         setFinalScoreReducer(state, '');
       }
     },
+    loadState: (state, action) => {
+      if (action.payload) {
+        return { ...action.payload.game };
+      }
+    },
   },
 };
 const gameSlice = createSlice(options);
@@ -128,5 +127,5 @@ export const rollDice = (dice = []) => {
   }
 };
 
-export const { hold, increaseCurrentScore, newGame, setFinalScore } = gameSlice.actions;
+export const { hold, increaseCurrentScore, newGame, setFinalScore, loadState } = gameSlice.actions;
 export default gameSlice.reducer;

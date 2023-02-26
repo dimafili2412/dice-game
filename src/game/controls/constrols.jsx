@@ -15,6 +15,7 @@ export default function Controls(props) {
   const actionsDisabled = useSelector((state) => state.game.winner !== -1 || !state.game.finalScore);
   const handleRollDiceClick = () => {
     dispatch(rollDice(dice));
+    dispatch(increaseCurrentScore(10));
   };
   const handleHoldClick = () => {
     dispatch(hold());
@@ -22,13 +23,6 @@ export default function Controls(props) {
   const handleNewGameClick = () => {
     dispatch(newGame());
   };
-
-  //when dice has rolled component will re-render and handle the roll result
-  useEffect(() => {
-    if (dice[0] + dice[1] > 0) {
-      dispatch(increaseCurrentScore(dice));
-    }
-  }, [dice]);
   return (
     //for mobile compatibility (responsiveness) move grid rows/columns to scss and create different media queries :)
     <div className="controls">
